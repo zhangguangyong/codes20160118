@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>codes-parent</artifactId>
@@ -11,6 +9,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>codes-common</artifactId>
+    <packaging>jar</packaging>
+
+    <!--
+    <groupId>com.github.zhangguangyong</groupId>
+    <artifactId>codes-common</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    -->
 
     <name>codes-common</name>
     <url>https://github.com/zhangguangyong/codes</url>
@@ -36,53 +42,17 @@
         <url>https://github.com/zhangguangyong/codes</url>
     </scm>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
-        <!-- test -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
     </dependencies>
 
-    <build>
-        <testSourceDirectory>${basedir}/src/test/java</testSourceDirectory>
-        <testOutputDirectory>${basedir}/target/classes</testOutputDirectory>
-
-        <plugins>
-            <!-- 资源 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-            </plugin>
-            <!-- 编译 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <configuration>
-                    <!-- 导入pom文件 -->
-                    <includePom>true</includePom>
-                    <!-- 每次都重新创 -->
-                    <forceCreation>true</forceCreation>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>jar-no-fork</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
-    <!-- 发布到Maven中央仓库 -->
     <profiles>
         <profile>
             <id>release</id>

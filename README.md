@@ -131,6 +131,30 @@ mvn clean deploy -P release
 
 2. 发布父项目下面的所有子项目，进入父项目执行：
 mvn clean deploy -P release
+2.1 如果出现错误：
+
+Event: Failed: Signature Validation
+typeId	signature-staging
+failureMessage	Invalid Signature: '/com/github/zhangguangyong/codes-common/1.0/codes-common-1.0-sources.jar.asc' is not a valid signature for 'codes-common-1.0-sources.jar'.
+
+解决方案：注释掉<parent> 节点，再发布
+<!--
+<parent>
+    <artifactId>codes-parent</artifactId>
+    <groupId>com.github.zhangguangyong</groupId>
+    <version>1.0</version>
+    <relativePath>../codes-parent/pom.xml</relativePath>
+</parent>
+
+<artifactId>codes-common</artifactId>
+<packaging>jar</packaging>
+-->
+
+<groupId>com.github.zhangguangyong</groupId>
+<artifactId>codes-common</artifactId>
+<version>1.0</version>
+<packaging>jar</packaging>
+
 
 3. 查看发布的记录，登陆自己在sonatype网站注册用户名密码
 https://oss.sonatype.org/
