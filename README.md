@@ -132,3 +132,9 @@ mvn clean deploy -P release
 2. 发布父项目下面的所有子项目，进入父项目执行：
 mvn clean deploy -P release
 
+3. 查看发布的记录，登陆自己在sonatype网站注册用户名密码
+https://oss.sonatype.org/
+
+3.1 进入 https://oss.sonatype.org/ 登陆自己的账号，找到自己刚刚发布的构件，进行关闭和发布操作通知sonatype网站的工作人员
+
+3.2 进入 http://search.maven.org/ 上搜索自己的构件
