@@ -88,6 +88,9 @@
         <org.apache.maven.plugins.compiler.version>3.2</org.apache.maven.plugins.compiler.version>
         <org.apache.maven.plugins.resources.version>2.7</org.apache.maven.plugins.resources.version>
         <org.apache.maven.plugins.source.version>2.4</org.apache.maven.plugins.source.version>
+        <org.apache.maven.plugins.javadoc.version>2.9.1</org.apache.maven.plugins.javadoc.version>
+        <org.apache.maven.plugins.gpg.version>1.5</org.apache.maven.plugins.gpg.version>
+
         <org.apache.maven.plugins.war.version>2.5</org.apache.maven.plugins.war.version>
         <org.apache.maven.plugins.dependency.version>2.9</org.apache.maven.plugins.dependency.version>
         <org.apache.maven.plugins.surefire.version>2.9</org.apache.maven.plugins.surefire.version>
@@ -145,14 +148,13 @@
 
     <!-- 统一依赖管理 -->
     <dependencyManagement>
-
         <dependencies>
-
             <!-- Test -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
+                <scope>test</scope>
             </dependency>
 
             <!-- J2EE -->
@@ -422,14 +424,17 @@
                 <artifactId>aspectjweaver</artifactId>
                 <version>${org.aspectj.version}</version>
             </dependency>
-
         </dependencies>
-
     </dependencyManagement>
+
 
     <build>
 
-        <!-- 统一插件管理 -->
+        <!-- 统一Jar项目的测试源文件编译后的输出路径 -->
+        <testOutputDirectory>target/classes</testOutputDirectory>
+
+
+        <!-- 统一插件配置声明 -->
         <pluginManagement>
             <plugins>
                 <!-- resources -->
@@ -501,9 +506,55 @@
                 </plugin>
 
             </plugins>
-
         </pluginManagement>
 
+        <!-- 统一插件默认配置 -->
+        <plugins>
+            <!-- compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${org.apache.maven.plugins.compiler.version}</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- source -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${org.apache.maven.plugins.source.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+            </plugin>
+
+            <!-- javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${org.apache.maven.plugins.javadoc.version}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
     <!-- 统一发布管理,发布到公司的私服
@@ -521,32 +572,35 @@
         </snapshotRepository>
     </distributionManagement>
     -->
-
-    <!-- 发布到Maven中央仓库 -->
+    <!-- 发布到Maven中央仓库的配置，这里的配置最好是每个子项目共享，不要单独放在子项目中，否则可能会产生验证错误(Event: Failed: Signature Validation typeId signature-staging failureMessage Invalid Signature) -->
     <profiles>
         <profile>
             <id>release</id>
             <build>
                 <plugins>
-                    <!-- Source -->
+                    <!-- source -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>2.2.1</version>
+                        <version>${org.apache.maven.plugins.source.version}</version>
                         <executions>
                             <execution>
-                                <phase>package</phase>
+                                <id>attach-sources</id>
                                 <goals>
                                     <goal>jar-no-fork</goal>
                                 </goals>
                             </execution>
                         </executions>
+                        <configuration>
+                            <attach>true</attach>
+                        </configuration>
                     </plugin>
-                    <!-- Javadoc -->
+
+                    <!-- javadoc -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.9.1</version>
+                        <version>${org.apache.maven.plugins.javadoc.version}</version>
                         <executions>
                             <execution>
                                 <phase>package</phase>
@@ -556,14 +610,15 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <!-- GPG -->
+
+                    <!-- gpg -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.5</version>
+                        <version>${org.apache.maven.plugins.gpg.version}</version>
                         <executions>
                             <execution>
-                                <phase>verify</phase>
+                                <phase>install</phase>
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
@@ -572,14 +627,21 @@
                     </plugin>
                 </plugins>
             </build>
+
+
+            <!-- deploy -->
             <distributionManagement>
                 <snapshotRepository>
                     <id>oss</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+                    <url>
+                        https://oss.sonatype.org/content/repositories/snapshots/
+                    </url>
                 </snapshotRepository>
                 <repository>
                     <id>oss</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                    <url>
+                        https://oss.sonatype.org/service/local/staging/deploy/maven2/
+                    </url>
                 </repository>
             </distributionManagement>
         </profile>
