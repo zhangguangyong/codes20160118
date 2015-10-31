@@ -15,8 +15,6 @@ hs_err_pid*
 .classpath
 .project
 .settings/
-.metadata
-
 
 # Intellij
 .idea/
@@ -29,11 +27,3 @@ hs_err_pid*
 # Maven
 log/
 target/
-
-# other file
-Servers/
-codes-demo/
-coes-web-spring/
-platform-project/
-
-

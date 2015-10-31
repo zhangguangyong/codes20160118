@@ -1,0 +1,35 @@
+package com.codes.persistence.hibernate.dao.impl;
+
+import java.lang.reflect.Field;
+
+import com.codes.common.util.$;
+import com.codes.common.util.Reflections;
+import com.codes.persistence.hibernate.domain.support.ExtendField;
+import com.codes.persistence.hibernate.domain.support.ExtendFieldAnno;
+
+/**
+ * 数据访问辅助类
+ * @author ZhangGuangYong
+ *
+ * 2015年10月28日 下午10:57:11
+ */
+public abstract class DaoHelper {
+	
+	/**
+	 * 获取扩展字段名称
+	 * @param cls
+	 * @param extendField
+	 * @return
+	 */
+	public static String getExtendFieldName(Class<?>  cls, ExtendField extendField){
+		Field[] fields = Reflections.getAllDeclaredFields(cls);
+		for (Field field : fields) {
+			ExtendFieldAnno anno = field.getAnnotation(ExtendFieldAnno.class);
+			if( $.notNull(anno) && anno.value() == extendField ){
+				return field.getName();
+			}
+		}
+		return null;
+	}
+	
+}

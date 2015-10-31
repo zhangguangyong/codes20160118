@@ -1,0 +1,200 @@
+package com.codes.persistence.hibernate.dao.impl;
+
+import java.io.Serializable;
+import java.util.Iterator;
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
+
+import static com.codes.common.util.$.*;
+
+import com.codes.common.util.Reflections;
+import com.codes.persistence.hibernate.dao.CurdDao;
+import com.codes.persistence.hibernate.domain.Entity;
+import com.codes.persistence.hibernate.domain.Pageable;
+import com.codes.persistence.hibernate.domain.Sort;
+import com.google.common.collect.Lists;
+
+@SuppressWarnings("all")
+public class CurdDaoImpl<T extends Entity<ID>, ID extends Serializable>
+		implements CurdDao<T, ID> {
+
+	// 批量处理的类型
+	static enum BatchType {
+		SAVE, UPDATE, SAVE_OR_UPDATE, DELETE
+	}
+
+	// 默认一次批量的个数
+	static final int DEFAULT_BATCH_SIZE = 20;
+
+	static String DELETE_SQL_TEMPLATE = "delete from %s";
+
+	protected SessionFactory sessionFactory;
+
+	protected Class<T> entityClass;
+
+	public CurdDaoImpl() {
+		this.entityClass = Reflections.getGeneric(getClass());
+	}
+
+	@Override
+	public long count() {
+		Object result = createCriteria().setProjection(Projections.rowCount()).uniqueResult();
+		if( notNull(result) ){
+			return Long.valueOf(result.toString());
+		}
+		return 0;
+	}
+
+	@Override
+	public void delete(ID id) {
+		Session session = getCurrentSession();
+		session.delete(session.get(entityClass, id));
+	}
+
+	@Override
+	public void delete(Iterable<? extends T> entities) {
+		batchHandle(entities, BatchType.DELETE);
+	}
+
+	@Override
+	public void delete(T entity) {
+		getCurrentSession().delete(entity);
+	}
+
+	@Override
+	public void deleteAll() {
+		getCurrentSession().createQuery(
+				String.format(DELETE_SQL_TEMPLATE, entityClass.getName()))
+				.executeUpdate();
+	}
+
+	@Override
+	public boolean exists(ID id) {
+		return null != (getCurrentSession().get(entityClass, id));
+	}
+
+	@Override
+	public Iterable<T> findAll() {
+		return createCriteria(entityClass).list();
+	}
+
+	@Override
+	public Iterable<T> findAll(Iterable<ID> ids) {
+		return createCriteria().add(
+				Restrictions.in(getIdFieldName(), Lists.newArrayList(ids)))
+				.list();
+	}
+
+	@Override
+	public T findOne(ID id) {
+		return (T) getCurrentSession().get(entityClass, id);
+	}
+
+	@Override
+	public Iterable<T> save(Iterable<T> entities) {
+		batchHandle(entities, BatchType.SAVE);
+		return entities;
+	}
+
+	@Override
+	public T save(T entity) {
+		getCurrentSession().save(entity);
+		return entity;
+	}
+
+	/**
+	 * 批量操作
+	 * 
+	 * @param entities
+	 * @param batchType
+	 * @param batchSize
+	 */
+	protected void batchHandle(Iterable<?> entities, BatchType batchType,
+			int batchSize) {
+		Session session = getCurrentSession();
+		Iterator<?> it = entities.iterator();
+		int count = 0;
+		while (it.hasNext()) {
+			count++;
+			Object entity = it.next();
+			switch (batchType) {
+			case SAVE:
+				session.save(entity);
+				break;
+			case UPDATE:
+				session.update(entity);
+				break;
+			case SAVE_OR_UPDATE:
+				session.saveOrUpdate(entity);
+				break;
+			case DELETE:
+				session.delete(entity);
+				break;
+			}
+			if (count % batchSize == 0) {
+				session.flush();
+				session.clear();
+			}
+		}
+	}
+
+	/**
+	 * 批量处理
+	 * 
+	 * @param entities
+	 * @param batchType
+	 */
+	protected void batchHandle(Iterable<?> entities, BatchType batchType) {
+		batchHandle(entities, batchType, DEFAULT_BATCH_SIZE);
+	}
+
+	/**
+	 * 获取当前Session
+	 * 
+	 * @return
+	 */
+	protected Session getCurrentSession() {
+		return getSessionFactory().getCurrentSession();
+	}
+	
+	/**
+	 * 获取ID名称
+	 * @param persistentClass
+	 * @return
+	 */
+	protected String getIdFieldName(Class<?> persistentClass) {
+		return getSessionFactory().getClassMetadata(persistentClass)
+				.getIdentifierPropertyName();
+	}
+	
+	protected String getIdFieldName() {
+		return getIdFieldName(entityClass);
+	}
+
+	protected Criteria createCriteria(Class<T> persistentClass) {
+		return getCurrentSession().createCriteria(persistentClass);
+	}
+
+	protected Criteria createCriteria() {
+		return createCriteria(entityClass);
+	}
+	
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
+	public Class<T> getEntityClass() {
+		return entityClass;
+	}
+	
+}

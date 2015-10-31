@@ -1,0 +1,39 @@
+package com.codes.persistence.hibernate.domain.support;
+
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+/**
+ * 支持树形结构化的实体
+ * @author Administrator
+ *
+ * 2015年10月27日 下午4:27:29
+ */
+@MappedSuperclass
+public abstract class SupportTreeEntity extends DefaultSupportEntity implements Treeable<String, Integer> {
+	
+	protected String parent;
+	protected String position;
+	
+	@Override
+	@Column(name="ext_parent")
+	public String getParent() {
+		return this.parent;
+	}
+
+	@Override
+	public void setParent(String parent) {
+		this.parent = parent;
+	}
+
+	@Override
+	@Column(name="ext_position")
+	public String getPosition() {
+		return position;
+	}
+
+	@Override
+	public void setPosition(String position) {
+		this.position = position;
+	}
+
+}
