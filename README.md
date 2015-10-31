@@ -1,143 +1,143 @@
 # codes
-ä»£ç åº“
+´úÂë¿â
 
-# å¼€å‘æ­¥éª¤(å‡è®¾ä½ å·²ç»ä¼šç”¨Git,å¹¶ä¸”å·²ç»å®‰è£…äº†Gitå·¥å…·)
-1. å¼€å‘Gitå·¥å…·ï¼Œåˆ°è‡ªå·±çš„å·¥ä½œç©ºé—´ï¼Œç”¨Mavenåˆ›å»ºä¸€ä¸ªæ¨¡å—åŒ–çš„é¡¹ç›®
+# ¿ª·¢²½Öè(¼ÙÉèÄãÒÑ¾­»áÓÃGit,²¢ÇÒÒÑ¾­°²×°ÁËGit¹¤¾ß)
+1. ¿ª·¢Git¹¤¾ß£¬µ½×Ô¼ºµÄ¹¤×÷¿Õ¼ä£¬ÓÃMaven´´½¨Ò»¸öÄ£¿é»¯µÄÏîÄ¿
 
-2. è¿›å…¥æ¨¡å—çš„çˆ¶èŠ‚ç‚¹ï¼Œåœ¨æˆ‘çš„æœºå™¨ä¸Šçš„ç›®å½•ç»“æ„å¦‚ä¸‹ï¼š
-å· è½¯ä»¶ çš„æ–‡ä»¶å¤¹ PATH åˆ—è¡¨
-å·åºåˆ—å·ä¸º 00B843E6 000D:9E2E
+2. ½øÈëÄ£¿éµÄ¸¸½Úµã£¬ÔÚÎÒµÄ»úÆ÷ÉÏµÄÄ¿Â¼½á¹¹ÈçÏÂ£º
+¾í Èí¼ş µÄÎÄ¼ş¼Ğ PATH ÁĞ±í
+¾íĞòÁĞºÅÎª 00B843E6 000D:9E2E
 D:\DEV\WORKSPACE\IDEAPROJECTS\CODES
-â”‚  .gitignore
-â”‚  LICENSE
-â”‚  README.md
-â”‚
-â”œâ”€.idea
-â”‚  â”‚  .name
-â”‚  â”‚  compiler.xml
-â”‚  â”‚  encodings.xml
-â”‚  â”‚  misc.xml
-â”‚  â”‚  modules.xml
-â”‚  â”‚  uiDesigner.xml
-â”‚  â”‚  vcs.xml
-â”‚  â”‚  workspace.xml
-â”‚  â”‚
-â”‚  â”œâ”€copyright
-â”‚  â”‚      profiles_settings.xml
-â”‚  â”‚
-â”‚  â”œâ”€dictionaries
-â”‚  â”‚      Administrator.xml
-â”‚  â”‚
-â”‚  â””â”€libraries
-â”‚          Maven__junit_junit_4_11.xml
-â”‚          Maven__org_hamcrest_hamcrest_core_1_3.xml
-â”‚
-â”œâ”€batch
-â”‚  â””â”€EnvironmentConfig
-â”‚      â”œâ”€backup
-â”‚      â”‚      readme
-â”‚      â”‚
-â”‚      â”œâ”€bin
-â”‚      â”‚      epath.bat
-â”‚      â”‚      evar.bat
-â”‚      â”‚      init-epath-revert.bat
-â”‚      â”‚      init-epath.bat
-â”‚      â”‚      init-evar-revert.bat
-â”‚      â”‚      init-evar.bat
-â”‚      â”‚      init-revert.bat
-â”‚      â”‚      init.bat
-â”‚      â”‚
-â”‚      â”œâ”€conf
-â”‚      â”‚      epath.conf
-â”‚      â”‚      evar.conf
-â”‚      â”‚
-â”‚      â””â”€logs
-â”‚              readme
-â”‚
-â”œâ”€codes-common
-â”‚  â”‚  .gitignore
-â”‚  â”‚  codes-common.iml
-â”‚  â”‚  pom.xml
-â”‚  â”‚
-â”‚  â”œâ”€src
-â”‚  â”‚  â”œâ”€main
-â”‚  â”‚  â”‚  â”œâ”€java
-â”‚  â”‚  â”‚  â””â”€resources
-â”‚  â”‚  â””â”€test
-â”‚  â”‚      â””â”€java
-â”‚  â”‚          â””â”€com
-â”‚  â”‚              â””â”€test
-â”‚  â”‚                      JunitTest.java
-â”‚  â”‚
-â”‚  â””â”€target
-â”‚      â”‚  codes-common-1.0-sources.jar
-â”‚      â”‚  codes-common-1.0-sources.jar.asc
-â”‚      â”‚  codes-common-1.0.jar
-â”‚      â”‚  codes-common-1.0.jar.asc
-â”‚      â”‚  codes-common-1.0.pom
-â”‚      â”‚  codes-common-1.0.pom.asc
-â”‚      â”‚
-â”‚      â”œâ”€classes
-â”‚      â”‚  â””â”€com
-â”‚      â”‚      â””â”€test
-â”‚      â”‚              JunitTest.class
-â”‚      â”‚
-â”‚      â”œâ”€generated-test-sources
-â”‚      â”‚  â””â”€test-annotations
-â”‚      â”œâ”€javadoc-bundle-options
-â”‚      â”‚      javadoc-options-javadoc-resources.xml
-â”‚      â”‚
-â”‚      â”œâ”€maven-archiver
-â”‚      â”‚      pom.properties
-â”‚      â”‚
-â”‚      â””â”€maven-status
-â”‚          â””â”€maven-compiler-plugin
-â”‚              â”œâ”€compile
-â”‚              â”‚  â””â”€default-compile
-â”‚              â”‚          inputFiles.lst
-â”‚              â”‚
-â”‚              â””â”€testCompile
-â”‚                  â””â”€default-testCompile
-â”‚                          createdFiles.lst
-â”‚                          inputFiles.lst
-â”‚
-â””â”€codes-parent
-    â”‚  .gitignore
-    â”‚  codes-parent.iml
-    â”‚  pom.xml
-    â”‚
-    â””â”€target
+©¦  .gitignore
+©¦  LICENSE
+©¦  README.md
+©¦
+©À©¤.idea
+©¦  ©¦  .name
+©¦  ©¦  compiler.xml
+©¦  ©¦  encodings.xml
+©¦  ©¦  misc.xml
+©¦  ©¦  modules.xml
+©¦  ©¦  uiDesigner.xml
+©¦  ©¦  vcs.xml
+©¦  ©¦  workspace.xml
+©¦  ©¦
+©¦  ©À©¤copyright
+©¦  ©¦      profiles_settings.xml
+©¦  ©¦
+©¦  ©À©¤dictionaries
+©¦  ©¦      Administrator.xml
+©¦  ©¦
+©¦  ©¸©¤libraries
+©¦          Maven__junit_junit_4_11.xml
+©¦          Maven__org_hamcrest_hamcrest_core_1_3.xml
+©¦
+©À©¤batch
+©¦  ©¸©¤EnvironmentConfig
+©¦      ©À©¤backup
+©¦      ©¦      readme
+©¦      ©¦
+©¦      ©À©¤bin
+©¦      ©¦      epath.bat
+©¦      ©¦      evar.bat
+©¦      ©¦      init-epath-revert.bat
+©¦      ©¦      init-epath.bat
+©¦      ©¦      init-evar-revert.bat
+©¦      ©¦      init-evar.bat
+©¦      ©¦      init-revert.bat
+©¦      ©¦      init.bat
+©¦      ©¦
+©¦      ©À©¤conf
+©¦      ©¦      epath.conf
+©¦      ©¦      evar.conf
+©¦      ©¦
+©¦      ©¸©¤logs
+©¦              readme
+©¦
+©À©¤codes-common
+©¦  ©¦  .gitignore
+©¦  ©¦  codes-common.iml
+©¦  ©¦  pom.xml
+©¦  ©¦
+©¦  ©À©¤src
+©¦  ©¦  ©À©¤main
+©¦  ©¦  ©¦  ©À©¤java
+©¦  ©¦  ©¦  ©¸©¤resources
+©¦  ©¦  ©¸©¤test
+©¦  ©¦      ©¸©¤java
+©¦  ©¦          ©¸©¤com
+©¦  ©¦              ©¸©¤test
+©¦  ©¦                      JunitTest.java
+©¦  ©¦
+©¦  ©¸©¤target
+©¦      ©¦  codes-common-1.0-sources.jar
+©¦      ©¦  codes-common-1.0-sources.jar.asc
+©¦      ©¦  codes-common-1.0.jar
+©¦      ©¦  codes-common-1.0.jar.asc
+©¦      ©¦  codes-common-1.0.pom
+©¦      ©¦  codes-common-1.0.pom.asc
+©¦      ©¦
+©¦      ©À©¤classes
+©¦      ©¦  ©¸©¤com
+©¦      ©¦      ©¸©¤test
+©¦      ©¦              JunitTest.class
+©¦      ©¦
+©¦      ©À©¤generated-test-sources
+©¦      ©¦  ©¸©¤test-annotations
+©¦      ©À©¤javadoc-bundle-options
+©¦      ©¦      javadoc-options-javadoc-resources.xml
+©¦      ©¦
+©¦      ©À©¤maven-archiver
+©¦      ©¦      pom.properties
+©¦      ©¦
+©¦      ©¸©¤maven-status
+©¦          ©¸©¤maven-compiler-plugin
+©¦              ©À©¤compile
+©¦              ©¦  ©¸©¤default-compile
+©¦              ©¦          inputFiles.lst
+©¦              ©¦
+©¦              ©¸©¤testCompile
+©¦                  ©¸©¤default-testCompile
+©¦                          createdFiles.lst
+©¦                          inputFiles.lst
+©¦
+©¸©¤codes-parent
+    ©¦  .gitignore
+    ©¦  codes-parent.iml
+    ©¦  pom.xml
+    ©¦
+    ©¸©¤target
             codes-parent-1.0.pom
             codes-parent-1.0.pom.asc
 
 
 
-3. è¿›å…¥codesç›®å½•ï¼Œæ‰§è¡Œ git init å‘½ä»¤
+3. ½øÈëcodesÄ¿Â¼£¬Ö´ĞĞ git init ÃüÁî
 
-4. æ‰§è¡Œ git remote add origin git@github.com:zhangguangyong/codes.git å‘½ä»¤å…³è”å…³è”githubä¸Šé¢çš„ä»“åº“
+4. Ö´ĞĞ git remote add origin git@github.com:zhangguangyong/codes.git ÃüÁî¹ØÁª¹ØÁªgithubÉÏÃæµÄ²Ö¿â
 
-5. è‡ªè¡Œ git pull origin master æ›´æ–°åˆšåˆšå…³è”githubä¸Šçš„codes.gitä»“åº“
+5. ×ÔĞĞ git pull origin master ¸üĞÂ¸Õ¸Õ¹ØÁªgithubÉÏµÄcodes.git²Ö¿â
 
-6. æäº¤æœ¬åœ°çš„æ›´æ–°
+6. Ìá½»±¾µØµÄ¸üĞÂ
 git add .
 git commit -m 'xxxxxxxxx'
 git push origin master
 
 
 
-# å‘å¸ƒåˆ°Mavenä¸­å¤®ä»“åº“
-1. å•ç‹¬å‘å¸ƒæŸä¸ªå­é¡¹ç›®ï¼Œè¿›å…¥å­é¡¹ç›®æ‰§è¡Œï¼š
+# ·¢²¼µ½MavenÖĞÑë²Ö¿â
+1. µ¥¶À·¢²¼Ä³¸ö×ÓÏîÄ¿£¬½øÈë×ÓÏîÄ¿Ö´ĞĞ£º
 mvn clean deploy -P release
 
-2. å‘å¸ƒçˆ¶é¡¹ç›®ä¸‹é¢çš„æ‰€æœ‰å­é¡¹ç›®ï¼Œè¿›å…¥çˆ¶é¡¹ç›®æ‰§è¡Œï¼š
+2. ·¢²¼¸¸ÏîÄ¿ÏÂÃæµÄËùÓĞ×ÓÏîÄ¿£¬½øÈë¸¸ÏîÄ¿Ö´ĞĞ£º
 mvn clean deploy -P release
-2.1 å¦‚æœå‡ºç°é”™è¯¯ï¼š
+2.1 Èç¹û³öÏÖ´íÎó£º
 
 Event: Failed: Signature Validation
 typeId	signature-staging
 failureMessage	Invalid Signature: '/com/github/zhangguangyong/codes-common/1.0/codes-common-1.0-sources.jar.asc' is not a valid signature for 'codes-common-1.0-sources.jar'.
 
-è§£å†³æ–¹æ¡ˆï¼šæ³¨é‡Šæ‰<parent> èŠ‚ç‚¹ï¼Œå†å‘å¸ƒ
+½â¾ö·½°¸£º×¢ÊÍµô<parent> ½Úµã£¬ÔÙ·¢²¼
 <!--
 <parent>
     <artifactId>codes-parent</artifactId>
@@ -156,9 +156,9 @@ failureMessage	Invalid Signature: '/com/github/zhangguangyong/codes-common/1.0/c
 <packaging>jar</packaging>
 
 
-3. æŸ¥çœ‹å‘å¸ƒçš„è®°å½•ï¼Œç™»é™†è‡ªå·±åœ¨sonatypeç½‘ç«™æ³¨å†Œç”¨æˆ·åå¯†ç 
+3. ²é¿´·¢²¼µÄ¼ÇÂ¼£¬µÇÂ½×Ô¼ºÔÚsonatypeÍøÕ¾×¢²áÓÃ»§ÃûÃÜÂë
 https://oss.sonatype.org/
 
-3.1 è¿›å…¥ https://oss.sonatype.org/ ç™»é™†è‡ªå·±çš„è´¦å·ï¼Œæ‰¾åˆ°è‡ªå·±åˆšåˆšå‘å¸ƒçš„æ„ä»¶ï¼Œè¿›è¡Œå…³é—­å’Œå‘å¸ƒæ“ä½œé€šçŸ¥sonatypeç½‘ç«™çš„å·¥ä½œäººå‘˜
+3.1 ½øÈë https://oss.sonatype.org/ µÇÂ½×Ô¼ºµÄÕËºÅ£¬ÕÒµ½×Ô¼º¸Õ¸Õ·¢²¼µÄ¹¹¼ş£¬½øĞĞ¹Ø±ÕºÍ·¢²¼²Ù×÷Í¨ÖªsonatypeÍøÕ¾µÄ¹¤×÷ÈËÔ±
 
-3.2 è¿›å…¥ http://search.maven.org/ ä¸Šæœç´¢è‡ªå·±çš„æ„ä»¶
+3.2 ½øÈë http://search.maven.org/ ÉÏËÑË÷×Ô¼ºµÄ¹¹¼ş
