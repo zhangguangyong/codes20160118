@@ -7,13 +7,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.codes.persistence.hibernate.dao.impl.SqlDaoImpl;
+import com.codes.persistence.hibernate.dao.impl.SqlTemplate;
 import com.codes.persistence.hibernate.domain.Page;
 import com.codes.persistence.hibernate.domain.PageParameter;
 
-public class SqlDaoImplTest {
+public class SqlDaoTemplateTest {
 
-	SqlDaoImpl sqlDao = new SqlDaoImpl();
+	SqlTemplate sqlDao = new SqlTemplate();
 	@Before
 	public void before(){
 		sqlDao.setSessionFactory(HibernateUtil.getSessionFactory());
@@ -45,7 +45,7 @@ public class SqlDaoImplTest {
 	public void testFind2() {
 		PageParameter pageParameter = new PageParameter(1, 10);
 		String sql = "select * from person t where t.firstname like ? or t.nickname like ?";
-		Page<?> page = sqlDao.find(sql, pageParameter, "%张%", "ab");
+		Page<?> page = sqlDao.findForPage(sql, pageParameter, "%张%", "ab");
 		System.out.println(page.getTotalRows());
 	}
 
