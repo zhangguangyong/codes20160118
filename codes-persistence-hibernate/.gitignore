@@ -30,6 +30,9 @@ hs_err_pid*
 log/
 target/
 
+# Svn
+.svn/
+
 # other file
 Servers/
 codes-demo/
