@@ -13,11 +13,12 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 import com.codes.common.util.Reflections;
+
 /**
- * 连接条件
- * @author zhangguangyong
+ * 条件查询,对应Hibernate的Restriction接口
+ * @author ZhangGuangYong
  *
- * 2015年10月7日 下午9:04:29
+ * 2015年11月3日 上午1:47:42
  */
 public class Condition {
 	

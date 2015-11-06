@@ -9,8 +9,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>codes-persistent-hibernate</artifactId>
-
 	<name>codes-persistent-hibernate</name>
+	
 	<url>https://github.com/zhangguangyong/codes</url>
 	<description>Codes Persistent Hibernate</description>
 

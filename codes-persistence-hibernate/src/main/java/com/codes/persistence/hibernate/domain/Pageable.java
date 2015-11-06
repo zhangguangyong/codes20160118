@@ -1,5 +1,6 @@
 package com.codes.persistence.hibernate.domain;
 
+
 /**
  * 可进行分页的标准
  * @author ZhangGuangYong

@@ -1,5 +1,6 @@
 package com.codes.persistence.hibernate.domain;
 
+
 /**
  * 分页参数
  * @author ZhangGuangYong
