@@ -10,7 +10,10 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.codes.common.util.Jsons;
+import com.codes.platform.base.service.BaseService;
 
 
 /**
@@ -20,6 +23,9 @@ import com.codes.common.util.Jsons;
  * 2015年11月5日 下午4:13:35
  */
 public abstract class BaseController {
+	
+	@Autowired
+	protected BaseService baseService;
 	
 	public void writeJson(HttpServletResponse response, Object value){
 		response.setContentType("application/x-json;charset=utf-8");

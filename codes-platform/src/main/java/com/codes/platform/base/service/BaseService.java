@@ -14,6 +14,7 @@ import com.codes.persistence.hibernate.dao.SqlDao;
  *
  *         2015年11月5日 下午3:50:56
  */
+@org.springframework.stereotype.Service
 public class BaseService implements Service {
 	private SqlDao sqlDao;
 

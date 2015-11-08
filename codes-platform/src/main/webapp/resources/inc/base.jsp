@@ -12,4 +12,8 @@
 <!-- jQuery -->
 <script type="text/javascript" src="${ctx}/resources/jquery/javascript.extension.js"></script>
 <script type="text/javascript" src="${ctx}/resources/jquery/jquery.js"></script>
+<script type="text/javascript" src="${ctx}/resources/jquery/jquery.json.js"></script>
+<script type="text/javascript" src="${ctx}/resources/jquery/jquery.timers.js"></script>
+<script type="text/javascript" src="${ctx}/resources/jquery/jquery.jqprint.js"></script>
+
 <script type="text/javascript" src="${ctx}/resources/jquery/jquery.extension.js"></script>

@@ -16,4 +16,18 @@ public class ResourceLoadTest {
 		
 	}
 	
+	@Test
+	public void test1(){
+		// System.out.println( 10000 * Math.pow(1.1, 6) );
+		// 17715.610000000008
+		// 17715.61000000001
+		double num = 1.1;
+		for (int i = 0; i < 5; i++) {
+			num *= 1.1;
+		}
+		System.out.println( 10000 * num);
+		
+	}
+	
+	
 }
