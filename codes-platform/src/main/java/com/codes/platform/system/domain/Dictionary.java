@@ -16,21 +16,25 @@ import com.codes.persistence.hibernate.domain.support.DefaultSupportEntity;
 @Entity
 @Table(name = "tb_system_Dictionary")
 public class Dictionary extends DefaultSupportEntity{
-	@Column
 	private String name;		//名称
-	@Column
 	private String code;		//编码
-	@Column
 	private String category;	//类别
+	
+	@Column
 	public String getName() {
 		return name;
 	}
+	
+	@Column
 	public String getCode() {
 		return code;
 	}
+	
+	@Column
 	public String getCategory() {
 		return category;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}

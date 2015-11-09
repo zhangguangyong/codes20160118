@@ -16,7 +16,7 @@ import com.codes.common.util.$;
 import com.codes.common.util.Reflections;
 import com.codes.platform.base.web.controller.EntityController;
 import com.codes.platform.system.domain.SearchCondition;
-import com.codes.platform.system.service.SearchConditionService;
+import com.codes.platform.system.service.ISearchConditionService;
 import com.codes.platform.util.ClassFinder;
 import com.google.common.collect.Lists;
 
@@ -33,7 +33,7 @@ public class SearchConditionController extends
 		EntityController<SearchCondition, Integer> {
 
 	@Autowired
-	SearchConditionService searchConditionService;
+	ISearchConditionService searchConditionService;
 	
 	@RequestMapping("getEntityNameMap")
 	public void doGetEntityNameMap(HttpServletResponse response) {

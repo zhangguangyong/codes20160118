@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.codes.persistence.hibernate.domain.support.DefaultSupportEntity;
+import com.codes.persistence.hibernate.domain.IntegerNativeEntity;
 
 /**
  * 搜索条件
@@ -16,41 +16,65 @@ import com.codes.persistence.hibernate.domain.support.DefaultSupportEntity;
 
 @Entity
 @Table(name = "tb_system_SearchCondition")
-public class SearchCondition extends DefaultSupportEntity {
-	/** 属性条件 */
-	@Column
-	private String properties;
+public class SearchCondition extends IntegerNativeEntity {
+	/** 前置条件 */
+	private String preconditions;
+	
+	/** 条件 */
+	private String conditions;
+	
+	/** 属性条件分组 */
+	private String conditionsGroup;
 
 	/** 排序条件 */
-	@Column
 	private String orders;
 
 	/** 分页条件 */
-	@Column
 	private String pages;
 
 	/** 对应的实体名称 */
-	@Column
 	private String entityName;
 
-	public String getProperties() {
-		return properties;
+	@Column
+	public String getPreconditions() {
+		return preconditions;
+	}
+	
+	@Column(length=4000)
+	public String getConditions() {
+		return conditions;
 	}
 
+	@Column
+	public String getConditionsGroup() {
+		return conditionsGroup;
+	}
+
+	@Column
 	public String getOrders() {
 		return orders;
 	}
 
+	@Column
 	public String getPages() {
 		return pages;
 	}
 
+	@Column
 	public String getEntityName() {
 		return entityName;
 	}
 
-	public void setProperties(String properties) {
-		this.properties = properties;
+	public void setPreconditions(String preconditions) {
+		this.preconditions = preconditions;
+	}
+
+	public void setConditions(String conditions) {
+		this.conditions = conditions;
+	}
+
+	public void setConditionsGroup(String conditionsGroup) {
+		this.conditionsGroup = conditionsGroup;
 	}
 
 	public void setOrders(String orders) {
@@ -64,5 +88,9 @@ public class SearchCondition extends DefaultSupportEntity {
 	public void setEntityName(String entityName) {
 		this.entityName = entityName;
 	}
+
+	
+
+	
 
 }
