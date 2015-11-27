@@ -28,7 +28,7 @@ import com.google.common.collect.Lists;
 
 /**
  * SQL Dao 接口实现
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  * 2015年10月30日 下午8:40:55
  */

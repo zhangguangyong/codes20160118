@@ -14,7 +14,7 @@ import com.google.common.collect.Lists;
 /**
  * Hibernate HQL 条件封装
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年10月30日 上午9:46:05
  */

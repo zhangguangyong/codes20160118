@@ -3,7 +3,7 @@ package com.codes.persistence.hibernate.domain;
 import java.util.List;
 /**
  * 页面内容
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  * 2015年10月27日 下午7:17:19
  */

@@ -9,7 +9,7 @@ import com.codes.persistence.hibernate.domain.Pageable;
 /**
  * Hibernate HQL 接口
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年10月31日 下午3:02:13
  */

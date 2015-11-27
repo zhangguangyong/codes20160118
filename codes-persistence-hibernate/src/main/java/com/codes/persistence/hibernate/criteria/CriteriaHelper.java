@@ -12,7 +12,7 @@ import org.hibernate.internal.CriteriaImpl;
 /**
  * 条件辅助类
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年10月27日 下午9:32:49
  */

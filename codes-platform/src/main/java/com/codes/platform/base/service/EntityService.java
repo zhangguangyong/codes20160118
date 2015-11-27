@@ -10,7 +10,7 @@ import com.codes.persistence.hibernate.domain.Sort;
 /**
  * 实体Service接口
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年11月5日 下午3:05:34
  */

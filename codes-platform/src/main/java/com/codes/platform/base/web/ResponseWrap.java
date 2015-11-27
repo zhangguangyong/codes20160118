@@ -13,7 +13,7 @@ import com.google.common.collect.Maps;
 
 /**
  * 响应包装
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  * 2015年11月7日 上午10:36:59
  */

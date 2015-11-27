@@ -22,7 +22,7 @@ import com.codes.common.util.$;
 /**
  * 类搜索器
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年11月7日 上午1:33:50
  */

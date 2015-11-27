@@ -15,7 +15,7 @@ import com.codes.persistence.hibernate.domain.Pageable;
 /**
  * Hibernate Native SQL 条件封装
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年10月30日 上午9:46:05
  */

@@ -5,47 +5,63 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
 import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
 import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 
-
 /**
  * 汉语拼音工具类
- * @author Administrator
+ * 
+ * @author zhangguangyong
  *
- * 2015年10月25日 下午9:00:05
+ *         2015年11月27日 下午6:23:38
  */
 public class Pinyins {
-	static String chineseCharacteRegex = "[u4E00-u9FA5]"; // 中文正则匹配
+	/** 中文正则匹配 */ 
+	static String chineseCharacteRegex = "[u4E00-u9FA5]"; 
 
-	// 大写格式
+	/** 大写格式 */ 
 	public static enum PinyinUpperFormat {
 		UPPER_FIRST_LETTER, UPPER_LAST_LETTER, UPPER_MIDDLE_LETTER, UPPER_FIRST_LAST_LETTER, UPPER_ALL
 	}
 
-	// 截取格式
+	/** 截取格式 */ 
 	public static enum PinyinCUTFormat {
 		CUT_FIRST_LETTER, CUT_LAST_LETTER, CUT_MIDDLE_LETTER, CUT_FIRST_LAST_LETTER
 	}
 
-	// 声调格式
+	/** 声调格式 */ 
 	public static enum PinyinTONEFormat {
 		TONE_MARK, TONE_NUMBER, TONE_NONE,
 	}
 
-	// U字母格式
+	/** U字母格式 */ 
 	public static enum PinyinULetterFormat {
 		U_AND_COLON, U_UNICODE, U_V
 	}
-
+	
+	/**
+	 * 获取单个字符拼音
+	 * @param c
+	 * @return
+	 */
 	public static String getPinyin(char c) {
 		return getPinyin(c, null);
 	}
 	
+	/**
+	 * 获取字符串拼音
+	 * @param text
+	 * @return
+	 */
 	public static String getPinyin(String text) {
 		PinyinFormat pf = new PinyinFormat();
 		pf.setToneFormat(PinyinTONEFormat.TONE_NONE);
 		return getPinyin(text, pf);
 	}
-	
-	// 获取字符串拼音
+
+	/**
+	 * 获取字符串拼音，指定拼音的格式 
+	 * @param text
+	 * @param format
+	 * @return
+	 */
 	public static String getPinyin(String text, PinyinFormat format) {
 		char[] array = text.toCharArray();
 		StringBuffer sb = new StringBuffer();
@@ -71,11 +87,21 @@ public class Pinyins {
 		return sb.toString();
 	}
 
-	// 获取字符串首字母
+	/**
+	 * 获取字符串首字母小写 
+	 * @param text
+	 * @return
+	 */
 	public static String getFirstLetter(String text) {
 		return getFirstLetter(text, null);
 	}
-
+	
+	/**
+	 * 获取字符串首字母小写,指定分隔符
+	 * @param text
+	 * @param separator
+	 * @return
+	 */
 	public static String getFirstLetter(String text, String separator) {
 		try {
 			PinyinFormat format = new PinyinFormat();
@@ -92,13 +118,24 @@ public class Pinyins {
 		return null;
 	}
 
-	// 获取字符串首字母
+	/**
+	 * 获取字符串首字母大写
+	 * @param text
+	 * @return
+	 * @throws Exception
+	 */
 	public static String getFirstUpperLetter(String text) throws Exception {
 		return getFirstUpperLetter(text, null);
 	}
-
-	public static String getFirstUpperLetter(String text, String separator)
-			throws Exception {
+	
+	/**
+	 * 获取字符串首字母大写, 指定分隔符
+	 * @param text
+	 * @param separator
+	 * @return
+	 * @throws Exception
+	 */
+	public static String getFirstUpperLetter(String text, String separator) throws Exception {
 		PinyinFormat format = new PinyinFormat();
 		format.setUpperFormat(PinyinUpperFormat.UPPER_FIRST_LETTER);
 		format.setToneFormat(PinyinTONEFormat.TONE_NONE);
@@ -120,12 +157,10 @@ public class Pinyins {
 				outputFormat = new HanyuPinyinOutputFormat();
 				switch (toneFormat) {
 				case TONE_MARK:
-					outputFormat
-							.setToneType(HanyuPinyinToneType.WITH_TONE_MARK);
+					outputFormat.setToneType(HanyuPinyinToneType.WITH_TONE_MARK);
 					break;
 				case TONE_NUMBER:
-					outputFormat
-							.setToneType(HanyuPinyinToneType.WITH_TONE_NUMBER);
+					outputFormat.setToneType(HanyuPinyinToneType.WITH_TONE_NUMBER);
 					break;
 				case TONE_NONE:
 					outputFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
@@ -133,16 +168,13 @@ public class Pinyins {
 				}
 			}
 			if ($.notNull(uLetterFormat)) {
-				outputFormat = $.isNull(outputFormat) ? new HanyuPinyinOutputFormat()
-						: outputFormat;
+				outputFormat = $.isNull(outputFormat) ? new HanyuPinyinOutputFormat() : outputFormat;
 				switch (uLetterFormat) {
 				case U_AND_COLON:
-					outputFormat
-							.setVCharType(HanyuPinyinVCharType.WITH_U_AND_COLON);
+					outputFormat.setVCharType(HanyuPinyinVCharType.WITH_U_AND_COLON);
 					break;
 				case U_UNICODE:
-					outputFormat
-							.setVCharType(HanyuPinyinVCharType.WITH_U_UNICODE);
+					outputFormat.setVCharType(HanyuPinyinVCharType.WITH_U_UNICODE);
 					break;
 				case U_V:
 					outputFormat.setVCharType(HanyuPinyinVCharType.WITH_V);
@@ -152,9 +184,8 @@ public class Pinyins {
 		}
 		String[] pys = null;
 		try {
-			pys = $.notNull(outputFormat) ? PinyinHelper
-					.toHanyuPinyinStringArray(c, outputFormat) : PinyinHelper
-					.toHanyuPinyinStringArray(c);
+			pys = $.notNull(outputFormat) ? PinyinHelper.toHanyuPinyinStringArray(c, outputFormat)
+					: PinyinHelper.toHanyuPinyinStringArray(c);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -173,26 +204,18 @@ public class Pinyins {
 						ret = ret.toUpperCase();
 						break;
 					case UPPER_FIRST_LETTER:
-						ret = String.valueOf(ret.charAt(0)).toUpperCase()
-								+ ret.substring(1);
+						ret = String.valueOf(ret.charAt(0)).toUpperCase() + ret.substring(1);
 						break;
 					case UPPER_LAST_LETTER:
-						ret = ret.substring(0, tempLen)
-								+ String.valueOf(ret.charAt(tempLen))
-										.toUpperCase();
+						ret = ret.substring(0, tempLen) + String.valueOf(ret.charAt(tempLen)).toUpperCase();
 						break;
 					case UPPER_FIRST_LAST_LETTER:
-						ret = ret.length() > 2 ? String.valueOf(ret.charAt(0))
-								.toUpperCase()
-								+ ret.substring(1, tempLen)
-								+ String.valueOf(ret.charAt(tempLen))
-										.toUpperCase() : ret.toUpperCase();
+						ret = ret.length() > 2 ? String.valueOf(ret.charAt(0)).toUpperCase() + ret.substring(1, tempLen)
+								+ String.valueOf(ret.charAt(tempLen)).toUpperCase() : ret.toUpperCase();
 						break;
 					case UPPER_MIDDLE_LETTER:
-						ret = ret.length() > 2 ? String.valueOf(ret.charAt(0))
-								+ ret.substring(1, tempLen).toUpperCase()
-								+ String.valueOf(ret.charAt(tempLen)) : ret
-								.toLowerCase();
+						ret = ret.length() > 2 ? String.valueOf(ret.charAt(0)) + ret.substring(1, tempLen).toUpperCase()
+								+ String.valueOf(ret.charAt(tempLen)) : ret.toLowerCase();
 						break;
 					}
 				}
@@ -206,12 +229,11 @@ public class Pinyins {
 						ret = String.valueOf(ret.charAt(tempLen));
 						break;
 					case CUT_MIDDLE_LETTER:
-						ret = ret.length() > 2 ? ret.substring(1, tempLen)
-								: ret;
+						ret = ret.length() > 2 ? ret.substring(1, tempLen) : ret;
 						break;
 					case CUT_FIRST_LAST_LETTER:
-						ret = ret.length() > 2 ? String.valueOf(ret.charAt(0))
-								+ String.valueOf(ret.charAt(tempLen)) : ret;
+						ret = ret.length() > 2 ? String.valueOf(ret.charAt(0)) + String.valueOf(ret.charAt(tempLen))
+								: ret;
 						break;
 					}
 				}
@@ -240,21 +262,18 @@ public class Pinyins {
 			this.upperFormat = upperFormat;
 		}
 
-		public PinyinFormat(PinyinUpperFormat upperFormat,
-				PinyinCUTFormat cutFormat) {
+		public PinyinFormat(PinyinUpperFormat upperFormat, PinyinCUTFormat cutFormat) {
 			this.upperFormat = upperFormat;
 			this.cutFormat = cutFormat;
 		}
 
-		public PinyinFormat(PinyinUpperFormat upperFormat,
-				PinyinCUTFormat cutFormat, PinyinTONEFormat toneFormat) {
+		public PinyinFormat(PinyinUpperFormat upperFormat, PinyinCUTFormat cutFormat, PinyinTONEFormat toneFormat) {
 			this.upperFormat = upperFormat;
 			this.cutFormat = cutFormat;
 			this.toneFormat = toneFormat;
 		}
 
-		public PinyinFormat(PinyinUpperFormat upperFormat,
-				PinyinCUTFormat cutFormat, PinyinTONEFormat toneFormat,
+		public PinyinFormat(PinyinUpperFormat upperFormat, PinyinCUTFormat cutFormat, PinyinTONEFormat toneFormat,
 				PinyinULetterFormat uLetterFormat) {
 			this.upperFormat = upperFormat;
 			this.cutFormat = cutFormat;

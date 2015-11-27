@@ -19,7 +19,7 @@ import com.codes.persistence.hibernate.domain.Pageable;
 /**
  * Hibernate Dao Teamplate
  * 主要用于 Hibernate的 HQL 查询
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  * 2015年10月31日 下午3:27:43
  */

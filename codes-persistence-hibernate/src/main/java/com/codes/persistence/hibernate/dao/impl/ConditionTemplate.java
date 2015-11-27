@@ -19,7 +19,7 @@ import com.codes.persistence.hibernate.domain.Sort;
 
 /**
  * 根据属性搜索的模板
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  * 2015年10月31日 下午4:35:07
  */

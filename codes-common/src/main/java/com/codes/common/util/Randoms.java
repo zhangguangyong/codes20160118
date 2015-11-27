@@ -8,7 +8,9 @@ import java.util.Random;
 /**
  * 随机数据工具类
  * 
- * @author zhanggy 2015年1月12日 下午2:17:15
+ * @author zhangguangyong
+ *
+ *         2015年11月27日 下午6:28:22
  */
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class Randoms {
@@ -26,67 +28,55 @@ public class Randoms {
 	static int firstChineseNum = firstChineseChar;
 	static int lastChineseNum = lastChineseChar;
 
-	static final char[] LOWERCHAR = new char[] { 'a', 'b', 'c', 'd', 'e', 'f',
-			'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-			't', 'u', 'v', 'w', 'x', 'y', 'z' };
+	static final char[] LOWERCHAR = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+			'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
 
-	static final char[] UPPERCHAR = new char[] { 'A', 'B', 'C', 'D', 'E', 'F',
-			'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
-			'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+	static final char[] UPPERCHAR = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+			'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 
-	static final char[] CHARS = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g',
-			'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
-			'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G',
-			'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
-			'U', 'V', 'W', 'X', 'Y', 'Z' };
+	static final char[] CHARS = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+			'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+			'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 
-	static final char[] NUMS = new char[] { '0', '1', '2', '3', '4', '5', '6',
-			'7', '8', '9' };
+	static final char[] NUMS = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
-	static char[] CHARANDNUM = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g',
-			'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
-			'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G',
-			'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
-			'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6',
-			'7', '8', '9' };
+	static char[] CHARANDNUM = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+			'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+			'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4',
+			'5', '6', '7', '8', '9' };
 
-	public static String random(final int count, final boolean letters,
-			final boolean numbers) {
+	public static String random(final int count, final boolean letters, final boolean numbers) {
 		return random(count, 0, 0, letters, numbers);
 	}
 
-	public static String random(final int count, final int start,
-			final int end, final boolean letters, final boolean numbers) {
+	public static String random(final int count, final int start, final int end, final boolean letters,
+			final boolean numbers) {
 		return random(count, start, end, letters, numbers, null, RANDOM);
 	}
 
-    public static String random(final int count, final String chars) {
-        if (chars == null) {
-            return random(count, 0, 0, false, false, null, RANDOM);
-        }
-        return random(count, chars.toCharArray());
-    }
-    
-    public static String random(final int count, final char... chars) {
-        if (chars == null) {
-            return random(count, 0, 0, false, false, null, RANDOM);
-        }
-        return random(count, 0, chars.length, false, false, chars, RANDOM);
-    }
-	
-	public static String random(int count, int start, int end,
-			final boolean letters, final boolean numbers, final char[] chars,
-			final Random random) {
+	public static String random(final int count, final String chars) {
+		if (chars == null) {
+			return random(count, 0, 0, false, false, null, RANDOM);
+		}
+		return random(count, chars.toCharArray());
+	}
+
+	public static String random(final int count, final char... chars) {
+		if (chars == null) {
+			return random(count, 0, 0, false, false, null, RANDOM);
+		}
+		return random(count, 0, chars.length, false, false, chars, RANDOM);
+	}
+
+	public static String random(int count, int start, int end, final boolean letters, final boolean numbers,
+			final char[] chars, final Random random) {
 		if (count == 0) {
 			return "";
 		} else if (count < 0) {
-			throw new IllegalArgumentException(
-					"Requested random string length " + count
-							+ " is less than 0.");
+			throw new IllegalArgumentException("Requested random string length " + count + " is less than 0.");
 		}
 		if (chars != null && chars.length == 0) {
-			throw new IllegalArgumentException(
-					"The chars array must not be empty");
+			throw new IllegalArgumentException("The chars array must not be empty");
 		}
 
 		if (start == 0 && end == 0) {
@@ -102,8 +92,8 @@ public class Randoms {
 			}
 		} else {
 			if (end <= start) {
-				throw new IllegalArgumentException("Parameter end (" + end
-						+ ") must be greater than start (" + start + ")");
+				throw new IllegalArgumentException(
+						"Parameter end (" + end + ") must be greater than start (" + start + ")");
 			}
 		}
 
@@ -117,8 +107,7 @@ public class Randoms {
 			} else {
 				ch = chars[random.nextInt(gap) + start];
 			}
-			if (letters && Character.isLetter(ch) || numbers
-					&& Character.isDigit(ch) || !letters && !numbers) {
+			if (letters && Character.isLetter(ch) || numbers && Character.isDigit(ch) || !letters && !numbers) {
 				if (ch >= 56320 && ch <= 57343) {
 					if (count == 0) {
 						count++;
@@ -386,6 +375,7 @@ public class Randoms {
 	}
 
 	public static Date randomDate() {
-		return randomDate(System.currentTimeMillis() - Integer.MAX_VALUE, System.currentTimeMillis() + Integer.MAX_VALUE);
+		return randomDate(System.currentTimeMillis() - Integer.MAX_VALUE,
+				System.currentTimeMillis() + Integer.MAX_VALUE);
 	}
 }

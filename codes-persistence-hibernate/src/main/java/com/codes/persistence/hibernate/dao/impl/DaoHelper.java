@@ -46,7 +46,7 @@ import com.google.common.primitives.Primitives;
 /**
  * 数据访问辅助类
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年10月28日 下午10:57:11
  */

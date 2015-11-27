@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 可树形结构化
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年10月27日 下午7:22:41
  */

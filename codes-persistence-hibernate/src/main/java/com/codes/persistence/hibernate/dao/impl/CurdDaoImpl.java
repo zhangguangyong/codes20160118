@@ -27,7 +27,7 @@ import com.google.common.collect.Lists;
 
 /**
  * 实体增删改查操作
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  * 2015年10月28日 下午7:24:37
  */

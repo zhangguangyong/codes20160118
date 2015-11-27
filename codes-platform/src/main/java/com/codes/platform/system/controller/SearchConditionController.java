@@ -23,7 +23,7 @@ import com.google.common.collect.Lists;
 /**
  * 搜索条件-控制层
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年11月5日 下午5:15:46
  */

@@ -33,7 +33,7 @@ public class PersonDaoTest {
 	@Test
 	public void testSave(){
 		Person entity = new Person();
-		entity.setFirstname( Datas.getWuxiaName() );
+		entity.setFirstname( Datas.getName() );
 		personDao.saveOrUpdate(entity);
 	}
 	
@@ -117,7 +117,7 @@ public class PersonDaoTest {
 		person.setSex( Datas.getSex() );
 		person.setPhone( Datas.getPhone() );
 		person.setEmail( Datas.getEmail() );
-		String name = Datas.getWuxiaName();
+		String name = Datas.getName();
 		String firstname = name.substring(0, 1);
 		String lastname = name.substring(1);
 		if( name.length() > 3 ){

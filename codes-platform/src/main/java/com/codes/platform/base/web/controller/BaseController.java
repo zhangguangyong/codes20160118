@@ -18,7 +18,7 @@ import com.codes.platform.base.service.BaseService;
 
 /**
  * 基础控制器
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  * 2015年11月5日 下午4:13:35
  */

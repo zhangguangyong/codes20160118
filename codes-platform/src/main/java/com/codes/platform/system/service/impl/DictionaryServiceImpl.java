@@ -9,7 +9,7 @@ import com.codes.platform.system.service.IDictionaryService;
 /**
  * 字典-业务接口实现
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年11月9日 下午1:44:32
  */

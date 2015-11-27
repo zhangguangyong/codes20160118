@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Hibernate Native SQL 接口
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年11月1日 上午4:13:16
  */

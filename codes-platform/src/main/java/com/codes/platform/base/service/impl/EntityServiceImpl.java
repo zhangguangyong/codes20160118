@@ -16,7 +16,7 @@ import com.codes.platform.base.service.EntityService;
 /**
  * 实体Service接口实现
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年11月5日 下午3:36:41
  */

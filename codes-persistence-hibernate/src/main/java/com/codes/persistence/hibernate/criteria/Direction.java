@@ -3,7 +3,7 @@ package com.codes.persistence.hibernate.criteria;
 /**
  * 排序，对应Hibernate的Order
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年11月3日 上午2:55:39
  */

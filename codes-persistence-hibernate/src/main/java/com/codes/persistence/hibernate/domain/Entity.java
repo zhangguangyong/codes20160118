@@ -3,7 +3,7 @@ package com.codes.persistence.hibernate.domain;
 import java.io.Serializable;
 /**
  * 持久化实体标准
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  * 2015年10月27日 下午7:19:53
  */

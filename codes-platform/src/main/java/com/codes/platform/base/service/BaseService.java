@@ -10,7 +10,7 @@ import com.codes.persistence.hibernate.dao.SqlDao;
 /**
  * 基础Service
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年11月5日 下午3:50:56
  */

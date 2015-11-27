@@ -4,9 +4,13 @@ import java.lang.reflect.Array;
 import java.util.Map;
 
 /**
- * 工具类的Face模式
+ * 常用工具方法集合
+ * 
+ * @author zhangguangyong
+ *
+ *         2015年11月27日 下午6:13:48
  */
-public class $ {
+public abstract class $ {
 	/*------------------------------ 空值判断 -------------------------------*/
 	/**
 	 * 为Null判断
@@ -37,10 +41,10 @@ public class $ {
 		}
 
 		// 线性数据
-		if( Iterable.class.isAssignableFrom(valueClass) ){
-			return ! ((Iterable) value).iterator().hasNext();
+		if (Iterable.class.isAssignableFrom(valueClass)) {
+			return !((Iterable) value).iterator().hasNext();
 		}
-		
+
 		// 键值对
 		if (Map.class.isAssignableFrom(valueClass)) {
 			return ((Map) value).isEmpty();
@@ -76,51 +80,45 @@ public class $ {
 
 	/*------------------------------ 空值检查 -------------------------------*/
 	public static <T> T checkNotNull(T reference) {
-		if ( isNull(reference) ) {
+		if (isNull(reference)) {
 			throw new NullPointerException();
 		}
 		return reference;
 	}
 
 	public static <T> T checkNotNull(T reference, Object errorMessage) {
-		if ( isNull(reference) ) {
+		if (isNull(reference)) {
 			throw new NullPointerException(String.valueOf(errorMessage));
 		}
 		return reference;
 	}
 
-	public static <T> T checkNotNull(T reference,
-			String errorMessageTemplate,
-			Object... errorMessageArgs) {
-		if ( isNull(reference) ) {
+	public static <T> T checkNotNull(T reference, String errorMessageTemplate, Object... errorMessageArgs) {
+		if (isNull(reference)) {
 			// If either of these parameters is null, the right thing happens
 			// anyway
-			throw new NullPointerException(format(errorMessageTemplate,
-					errorMessageArgs));
+			throw new NullPointerException(format(errorMessageTemplate, errorMessageArgs));
 		}
 		return reference;
 	}
 
 	public static <T> T checkNotEmpty(T reference) {
-		if ( isEmpty(reference) ) {
+		if (isEmpty(reference)) {
 			throw new IllegalArgumentException();
 		}
 		return reference;
 	}
-	
+
 	public static <T> T checkNotEmpty(T reference, Object errorMessage) {
-		if ( isEmpty(reference) ) {
+		if (isEmpty(reference)) {
 			throw new IllegalArgumentException(String.valueOf(errorMessage));
 		}
 		return reference;
 	}
-	
-	public static <T> T checkNotEmpty(T reference,
-			String errorMessageTemplate,
-			Object... errorMessageArgs) {
-		if ( isEmpty(reference) ) {
-			throw new IllegalArgumentException(format(errorMessageTemplate,
-					errorMessageArgs));
+
+	public static <T> T checkNotEmpty(T reference, String errorMessageTemplate, Object... errorMessageArgs) {
+		if (isEmpty(reference)) {
+			throw new IllegalArgumentException(format(errorMessageTemplate, errorMessageArgs));
 		}
 		return reference;
 	}
@@ -129,8 +127,7 @@ public class $ {
 		template = String.valueOf(template); // null -> "null"
 
 		// start substituting the arguments into the '%s' placeholders
-		StringBuilder builder = new StringBuilder(template.length() + 16
-				* args.length);
+		StringBuilder builder = new StringBuilder(template.length() + 16 * args.length);
 		int templateStart = 0;
 		int i = 0;
 		while (i < args.length) {
@@ -154,8 +151,8 @@ public class $ {
 			}
 			builder.append(']');
 		}
-		
+
 		return builder.toString();
 	}
-	
+
 }

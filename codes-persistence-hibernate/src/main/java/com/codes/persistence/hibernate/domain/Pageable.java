@@ -3,7 +3,7 @@ package com.codes.persistence.hibernate.domain;
 
 /**
  * 可进行分页的标准
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  * 2015年10月27日 下午7:10:33
  */

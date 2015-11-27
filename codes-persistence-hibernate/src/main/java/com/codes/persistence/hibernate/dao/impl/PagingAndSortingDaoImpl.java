@@ -19,7 +19,7 @@ import com.codes.persistence.hibernate.domain.Sort;
 /**
  * 分页和排序的实现
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年10月27日 下午9:58:20
  */

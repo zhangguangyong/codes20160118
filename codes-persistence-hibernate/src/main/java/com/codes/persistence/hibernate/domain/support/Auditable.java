@@ -3,7 +3,7 @@ package com.codes.persistence.hibernate.domain.support;
 /**
  * 可审核的
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年10月27日 下午7:21:57
  */

@@ -7,7 +7,7 @@ import org.hibernate.criterion.Order;
 
 /**
  * 排序封装
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  * 2015年10月27日 下午7:09:39
  */

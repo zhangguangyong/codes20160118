@@ -5,6 +5,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 创建数据库脚本 主要用于生成Oracle用户、表空间的创建脚本
+ * 
+ * @author zhangguangyong
+ *
+ *         2015年11月27日 下午6:21:19
+ */
 public class DbScripts {
 	// 行分隔符
 	static final String LINE_SEPARATOR = System.lineSeparator();
@@ -75,14 +82,10 @@ public class DbScripts {
 		$.checkNotNull(tempFile);
 
 		StringBuilder sb = new StringBuilder();
-		sb.append("CREATE TEMPORARY TABLESPACE " + tempTablespaceName)
-				.append(LINE_SEPARATOR)
-				.append("\tTEMPFILE '" + tempFile.getPath() + "'")
-				.append(LINE_SEPARATOR).append("\tSIZE " + tempInitSize)
-				.append(LINE_SEPARATOR)
-				.append("\tAUTOEXTEND " + tempAutoextend)
-				.append(LINE_SEPARATOR)
-				.append("\tNEXT " + tempNextSize + " MAXSIZE " + tempMaxSize)
+		sb.append("CREATE TEMPORARY TABLESPACE " + tempTablespaceName).append(LINE_SEPARATOR)
+				.append("\tTEMPFILE '" + tempFile.getPath() + "'").append(LINE_SEPARATOR)
+				.append("\tSIZE " + tempInitSize).append(LINE_SEPARATOR).append("\tAUTOEXTEND " + tempAutoextend)
+				.append(LINE_SEPARATOR).append("\tNEXT " + tempNextSize + " MAXSIZE " + tempMaxSize)
 				.append(LINE_SEPARATOR).append("\tEXTENT " + tempExtent + ";");
 		return sb.toString();
 	}
@@ -136,14 +139,11 @@ public class DbScripts {
 		$.checkNotNull(dataFile);
 
 		StringBuilder sb = new StringBuilder();
-		sb.append("CREATE TABLESPACE " + tablespaceName).append(LINE_SEPARATOR)
-				.append("\tLOGGING").append(LINE_SEPARATOR)
-				.append("\tDATAFILE '" + dataFile.getPath() + "'")
-				.append(LINE_SEPARATOR).append("\tSIZE " + initSize)
-				.append(LINE_SEPARATOR).append("\tAUTOEXTEND " + autoextend)
-				.append(LINE_SEPARATOR)
-				.append("\tNEXT " + nextSize + " MAXSIZE " + maxSize)
-				.append(LINE_SEPARATOR).append("\tEXTENT " + extent + ";");
+		sb.append("CREATE TABLESPACE " + tablespaceName).append(LINE_SEPARATOR).append("\tLOGGING")
+				.append(LINE_SEPARATOR).append("\tDATAFILE '" + dataFile.getPath() + "'").append(LINE_SEPARATOR)
+				.append("\tSIZE " + initSize).append(LINE_SEPARATOR).append("\tAUTOEXTEND " + autoextend)
+				.append(LINE_SEPARATOR).append("\tNEXT " + nextSize + " MAXSIZE " + maxSize).append(LINE_SEPARATOR)
+				.append("\tEXTENT " + extent + ";");
 		return sb.toString();
 	}
 
@@ -157,85 +157,77 @@ public class DbScripts {
 	private String account = "UNLOCK";
 	private String userDefaultTablespace;
 	private String userTemporaryTablespace;
-	
+
 	public DbScripts username(String username) {
 		this.username = username;
 		return this;
 	}
-	
+
 	public DbScripts password(String password) {
 		this.password = password;
 		return this;
 	}
-	
+
 	public DbScripts account(String account) {
 		this.account = account;
 		return this;
 	}
-	
+
 	public DbScripts userDefaultTablespace(String defaultTablespace) {
 		this.userDefaultTablespace = defaultTablespace;
 		return this;
 	}
-	
+
 	public DbScripts userTemporaryTablespace(String temporaryTablespace) {
 		this.userTemporaryTablespace = temporaryTablespace;
 		return this;
 	}
-	
+
 	public String toCreateUserScript() {
 		$.checkNotNull(username);
 		$.checkNotNull(password);
 
 		StringBuilder sb = new StringBuilder();
-		sb.append("CREATE USER " + username + " IDENTIFIED BY " + password)
-				.append(LINE_SEPARATOR).append("\tACCOUNT " + account)
-				.append(LINE_SEPARATOR)
-				.append("\tDEFAULT TABLESPACE " + userDefaultTablespace)
-				.append(LINE_SEPARATOR)
+		sb.append("CREATE USER " + username + " IDENTIFIED BY " + password).append(LINE_SEPARATOR)
+				.append("\tACCOUNT " + account).append(LINE_SEPARATOR)
+				.append("\tDEFAULT TABLESPACE " + userDefaultTablespace).append(LINE_SEPARATOR)
 				.append("\tTEMPORARY TABLESPACE " + userTemporaryTablespace + ";");
 		return sb.toString();
 	}
-	
+
 	// oracle grant
 	private List<String> permissions;
-	
-	public DbScripts grant(String firstPermission, String...morePermissions) {
+
+	public DbScripts grant(String firstPermission, String... morePermissions) {
 		$.checkNotNull(firstPermission);
 		permissions = new ArrayList<String>();
 		permissions.add(firstPermission);
-		if( $.notEmpty(morePermissions) ){
-			permissions.addAll( Arrays.asList(morePermissions) );
+		if ($.notEmpty(morePermissions)) {
+			permissions.addAll(Arrays.asList(morePermissions));
 		}
 		return this;
 	}
-	
-	public String toGrantScript(){
+
+	public String toGrantScript() {
 		$.checkNotNull(username);
 		$.checkNotNull(permissions);
-		return "GRANT "+ Strings.join(permissions, " ") +" TO "+ username +";";
+		return "GRANT " + Strings.join(permissions, " ") + " TO " + username + ";";
 	}
-	
-	public static String createOracleUserScript(String username, String password, File saveDir){
+
+	public static String createOracleUserScript(String username, String password, File saveDir) {
 		String tablespaceName = "tbs_" + username;
 		String tempTablespaceName = tablespaceName + "_temp";
-		
-		DbScripts dbScripts = DbScripts.on(DbType.ORACLE)
-			.username(username)
-			.password(password)
-			.userDefaultTablespace(tablespaceName)
-			.userTemporaryTablespace(tempTablespaceName)
-			.tempTablespace(tempTablespaceName)
-			.tempFile(new File(saveDir, tempTablespaceName + ORACLE_TABLESPACE_SUFFIX))
-			.tablespace(tablespaceName)
-			.dataFile(new File(saveDir, tablespaceName + ORACLE_TABLESPACE_SUFFIX))
-			.grant("DBA");
-		
+
+		DbScripts dbScripts = DbScripts.on(DbType.ORACLE).username(username).password(password)
+				.userDefaultTablespace(tablespaceName).userTemporaryTablespace(tempTablespaceName)
+				.tempTablespace(tempTablespaceName)
+				.tempFile(new File(saveDir, tempTablespaceName + ORACLE_TABLESPACE_SUFFIX)).tablespace(tablespaceName)
+				.dataFile(new File(saveDir, tablespaceName + ORACLE_TABLESPACE_SUFFIX)).grant("DBA");
+
 		StringBuilder sb = new StringBuilder();
-		sb.append( dbScripts.toCreateTemporaryTablespaceScript() ).append( LINE_SEPARATOR )
-			.append( dbScripts.toCreateTablespaceScript() ).append( LINE_SEPARATOR )
-			.append( dbScripts.toCreateUserScript() ).append(LINE_SEPARATOR)
-			.append( dbScripts.toGrantScript() );
+		sb.append(dbScripts.toCreateTemporaryTablespaceScript()).append(LINE_SEPARATOR)
+				.append(dbScripts.toCreateTablespaceScript()).append(LINE_SEPARATOR)
+				.append(dbScripts.toCreateUserScript()).append(LINE_SEPARATOR).append(dbScripts.toGrantScript());
 		return sb.toString();
 	}
 
@@ -318,7 +310,5 @@ public class DbScripts {
 	public List<String> getPermissions() {
 		return permissions;
 	}
-	
-	
 
 }

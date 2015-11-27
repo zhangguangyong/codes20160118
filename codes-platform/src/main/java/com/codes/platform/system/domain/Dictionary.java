@@ -9,7 +9,7 @@ import com.codes.persistence.hibernate.domain.support.DefaultSupportEntity;
 /**
  * 字典实体类
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年11月9日 上午12:56:27
  */

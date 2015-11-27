@@ -11,7 +11,7 @@ import com.codes.platform.system.service.ISearchConditionService;
 /**
  * 搜索条件-业务接口实现
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年11月5日 下午5:14:37
  */

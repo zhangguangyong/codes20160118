@@ -4,7 +4,7 @@ package com.codes.persistence.hibernate.criteria;
 /**
  * 使用函数统计，对应Hibernate 投影(Projections)、聚合（aggregation）和分组（grouping）
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年11月3日 上午1:52:30
  */

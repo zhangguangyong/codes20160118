@@ -4,7 +4,7 @@ import javax.persistence.MappedSuperclass;
 
 /**
  * Integer类型native主键生成策略
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  * 2015年10月27日 下午7:20:42
  */

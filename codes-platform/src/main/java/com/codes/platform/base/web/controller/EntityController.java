@@ -15,7 +15,7 @@ import com.codes.platform.base.service.EntityService;
 /**
  * 实体控制器
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年11月5日 下午4:17:53
  */

@@ -13,9 +13,9 @@ import org.joda.time.format.DateTimeFormat;
 /**
  * 日期时间工具类
  * 
- * @author ZhangGuangyong 2015年3月10日 下午3:01:10
+ * @author zhangguangyong 2015年3月10日 下午3:01:10
  */
-public class Dates {
+public abstract class Dates {
 
 	/** 中月 */
 	static List<Integer> midMonths = Arrays.asList(4, 6, 8, 11);
@@ -217,7 +217,7 @@ public class Dates {
 
 	/**
 	 * 自定义日期时间字段 
-	 * @author ZhangGuangyong
+	 * @author zhangguangyong
 	 * 2015年3月10日 下午3:03:37
 	 */
 	static enum DateTimeField {

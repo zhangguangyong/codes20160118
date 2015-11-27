@@ -10,7 +10,7 @@ import com.codes.persistence.hibernate.domain.Sort;
 /**
  * 分页与排序 Data Access Object
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年10月27日 下午7:48:17
  */

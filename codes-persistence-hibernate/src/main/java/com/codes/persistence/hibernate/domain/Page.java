@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * 页面内容接口
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  * 2015年10月27日 下午7:09:11
  */

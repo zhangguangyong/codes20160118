@@ -17,7 +17,7 @@ import java.util.Iterator;
  *
  * 2015年10月12日 下午2:57:07
  */
-public class Cmds {
+public abstract class Cmds {
 	
 	static final String LINE_SEPARATOR = "\r\n";
 	public static void execCmd(String[] cmds){

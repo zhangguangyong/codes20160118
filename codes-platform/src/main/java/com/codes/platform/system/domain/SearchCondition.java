@@ -9,7 +9,7 @@ import com.codes.persistence.hibernate.domain.IntegerNativeEntity;
 /**
  * 搜索条件
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年11月5日 下午5:07:42
  */

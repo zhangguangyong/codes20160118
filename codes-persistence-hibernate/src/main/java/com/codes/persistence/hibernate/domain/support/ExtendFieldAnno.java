@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 
 /**
  * 扩展字段注解
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  * 2015年10月28日 下午8:44:19
  */

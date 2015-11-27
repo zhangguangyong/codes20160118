@@ -10,7 +10,7 @@ import com.codes.persistence.hibernate.domain.Sort;
 /**
  * 实体属性查询DAO，底层是使用Hibernate的Criteria查询接口
  * 
- * @author ZhangGuangYong
+ * @author zhangguangyong
  *
  *         2015年10月31日 下午4:19:06
  */
