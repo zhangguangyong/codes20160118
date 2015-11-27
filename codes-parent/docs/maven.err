@@ -1,0 +1,23 @@
+//--------
+[ERROR] Failed to execute goal on project codes-persistent-hibernate: Could not resolve dependencies for project com.github.zhangguangyong:codes-persistent-hibernate:jar:1.0: The following artifacts could not be resolved: org.hibernate:hibernate-core:jar:4.2.0.Final, org.jboss.logging:jboss-logging:jar:3.1.0.GA: Failure to find org.hibernate:hibernate-core:jar:4.2.0.Final in http://10.1.1.47:8081/nexus/content/groups/public/ was cached in the local repository, resolution will not be reattempted until the update interval of centrlRepo has elapsed or updates are forced -> [Help 1]
+//解决：
+把：
+  <mirrors>
+    <mirror>
+      <id>central</id>
+      <mirrorOf>*</mirrorOf>
+      <name>centrl repo</name>
+      <url>http://10.1.1.47:8081/nexus/content/groups/public/</url>
+    </mirror>
+  </mirrors>
+改：
+  <mirrors>
+    <mirror>
+      <id>central</id>
+      <mirrorOf>central</mirrorOf>
+      <name>centrl repo</name>
+      <url>http://10.1.1.47:8081/nexus/content/groups/public/</url>
+    </mirror>
+  </mirrors>
+  
+  

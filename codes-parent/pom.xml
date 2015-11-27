@@ -139,7 +139,7 @@
 
 		<!-- database-driver -->
 		<mysql-connector-java.version>5.1.36</mysql-connector-java.version>
-		<com.oracle.ojdbc6.version>11.2.0.3.0</com.oracle.ojdbc6.version>
+		<com.oracle.ojdbc6.version>11.2.0.3</com.oracle.ojdbc6.version>
 		<com.microsoft.sqlserver.sqljdbc4.version>4.0</com.microsoft.sqlserver.sqljdbc4.version>
 
 		<!-- belerweb -->
